@@ -11,8 +11,8 @@ class Block:
         self.data = data
         self.hash = self.calculate_hash(index, prev_hash, data)
 
-    def calculate_hash(self, index, prev_hash, timestamp, data):
-        byte_input = str(index)+ str(prev_hash)+ str(timestamp)+ str(data)
+    def calculate_hash(self, index, prev_hash, data):
+        byte_input = str(index)+ str(prev_hash)+ str(self.timestamp)+ str(data)
         return hashlib.sha3_256(byte_input.encode()).hexdigest()
 
 
